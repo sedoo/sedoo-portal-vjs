@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<v-app class="minimum">
   <v-container class="mt-5">
       <v-row class="pb-5">
         <v-col cols="12" sm="3" class="pb-8">

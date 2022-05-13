@@ -138,7 +138,10 @@ export default {
     },
 
     launchAnimation() {
-
+     if (this.dValue=="-") {
+       this.counter="-"
+       return
+     }
      this.ok = true;
     this.timer = setInterval(() => {
       this.increaseCounter();

@@ -27,9 +27,11 @@ Vue.use(vueCustomElement);
 
 import sedooCounter from "./components/sedoo-counter"
 import sedooDashboard from "./components/sedoo-dashboard"
+import sedooFairDashboard from "./components/sedoo-fair-dashboard"
 
 sedooCounter.vuetify = vuetify;
 sedooDashboard.vuetify = vuetify;
+sedooFairDashboard.vuetify = vuetify;
 
 
 Vue.config.productionTip = false;
@@ -44,5 +46,6 @@ Vue.use(VueAxios, axios);
 
 Vue.customElement(sedooCounter.name, sedooCounter)
 Vue.customElement(sedooDashboard.name, sedooDashboard)
+Vue.customElement(sedooFairDashboard.name, sedooFairDashboard)
 
 
