@@ -9,10 +9,10 @@
             <SedooDashboardTitle color="#90BCD1"  value="100" append="%" label="Accessible" :step="10" ></SedooDashboardTitle>
         </v-col>
          <v-col cols="12" sm="3" class="pb-8">
-            <SedooDashboardTitle color="#CC9933"  label="Interoperable" :step="10" ></SedooDashboardTitle>
+            <SedooDashboardTitle color="#CC9933"  value="-" label="Interoperable" :step="10" ></SedooDashboardTitle>
         </v-col>
         <v-col cols="12" sm="3" class="pb-8">
-            <SedooDashboardTitle color="#B6CC49"  label="Reusable"  ></SedooDashboardTitle>
+            <SedooDashboardTitle color="#B6CC49"  value="-" label="Reusable"  ></SedooDashboardTitle>
         </v-col>
       
       </v-row>
