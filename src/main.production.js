@@ -29,14 +29,17 @@ import sedooCounter from "./components/sedoo-counter"
 import sedooDashboard from "./components/sedoo-dashboard"
 import sedooFairDashboard from "./components/sedoo-fair-dashboard"
 import sedooDoiDashboard from "./components/sedoo-doi-dashboard"
+import sedooPermalinksDashboard from "./components/sedoo-permalinks-dashboard"
 import sedooDoiState from "./components/sedoo-doi-state"
+import sedooPermalinksState from "./components/sedoo-permalinks-state"
 
 sedooCounter.vuetify = vuetify;
 sedooDashboard.vuetify = vuetify;
 sedooFairDashboard.vuetify = vuetify;
 sedooDoiDashboard.vuetify = vuetify;
 sedooDoiState.vuetify = vuetify;
-
+sedooPermalinksDashboard.vuetify = vuetify;
+sedooPermalinksState.vuetify = vuetify;
 
 Vue.config.productionTip = false;
 
@@ -53,4 +56,6 @@ Vue.customElement(sedooDashboard.name, sedooDashboard)
 Vue.customElement(sedooFairDashboard.name, sedooFairDashboard)
 Vue.customElement(sedooDoiDashboard.name, sedooDoiDashboard)
 Vue.customElement(sedooDoiState.name, sedooDoiState)
+Vue.customElement(sedooPermalinksState.name, sedooPermalinksState)
+Vue.customElement(sedooPermalinksDashboard.name, sedooPermalinksDashboard)
 
