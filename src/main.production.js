@@ -28,10 +28,14 @@ Vue.use(vueCustomElement);
 import sedooCounter from "./components/sedoo-counter"
 import sedooDashboard from "./components/sedoo-dashboard"
 import sedooFairDashboard from "./components/sedoo-fair-dashboard"
+import sedooDoiDashboard from "./components/sedoo-doi-dashboard"
+import sedooDoiState from "./components/sedoo-doi-state"
 
 sedooCounter.vuetify = vuetify;
 sedooDashboard.vuetify = vuetify;
 sedooFairDashboard.vuetify = vuetify;
+sedooDoiDashboard.vuetify = vuetify;
+sedooDoiState.vuetify = vuetify;
 
 
 Vue.config.productionTip = false;
@@ -47,5 +51,6 @@ Vue.use(VueAxios, axios);
 Vue.customElement(sedooCounter.name, sedooCounter)
 Vue.customElement(sedooDashboard.name, sedooDashboard)
 Vue.customElement(sedooFairDashboard.name, sedooFairDashboard)
-
+Vue.customElement(sedooDoiDashboard.name, sedooDoiDashboard)
+Vue.customElement(sedooDoiState.name, sedooDoiState)
 

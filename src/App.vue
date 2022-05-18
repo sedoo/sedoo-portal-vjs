@@ -1,12 +1,12 @@
 <template>
-<SedooFairDashboard></SedooFairDashboard>
+<SedooDoiState></SedooDoiState>
 </template>
 
 <script>
-import SedooFairDashboard from "./components/sedoo-fair-dashboard";
+import SedooDoiState from "./components/sedoo-doi-state";
 export default {
   name: "App",
-  components: { SedooFairDashboard },
+  components: { SedooDoiState },
   data: () => ({
   }),
 

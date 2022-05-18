@@ -6,9 +6,11 @@
             <v-list-item three-line>
             <v-list-item-content>
                 <v-list-item-title class="text-h2 mb-1 white--text">
-                <span v-if="preprend">{{preprend}}</span>{{counter}}<span v-if="append">{{append}}</span>
+                <v-icon v-if="counter==0" class="text-h1 mb-1 white--text" color="white">mdi-check</v-icon>
+                <v-icon v-else class="text-h1 mb-1 white--text" color="white">mdi-close</v-icon>
                 </v-list-item-title>
-                <v-list-item-subtitle class="white--text text-h5">{{label}}</v-list-item-subtitle>
+                <v-list-item-subtitle class="white--text text-h6"><span v-if="preprend">{{preprend}}</span>{{counter}}<span v-if="append">{{append}}</span> {{label}}</v-list-item-subtitle>
+                <v-list-item-subtitle class="white--text headlines font-weight-thin">Last check: {{lastCheck}}</v-list-item-subtitle>
             </v-list-item-content>
             </v-list-item>
         </v-col>
@@ -23,6 +25,15 @@ export default {
   name: "sedoo-dashboard-tile",
 
   computed: {
+    
+    color: function() {
+      if (this.counter==0) {
+        return "green darken-2"
+      } else {
+        return "red darken-2"
+      }
+    },
+
     activeCursor: function () {
       if (this.targeturl) {
         return "pointer"
@@ -44,14 +55,6 @@ export default {
 
  props: {
    
-    value: {
-      type: String
-    },
-
-     color: {
-      type: String
-    },
-
     icon: {
       type: String,
       default:""
@@ -62,6 +65,10 @@ export default {
     },
 
     jsonkey: {
+      type: String
+    },
+
+    jsonkeyLastCheck: {
       type: String
     },
 
@@ -95,17 +102,13 @@ export default {
       timer: null,
       counter: 0,
       ok: false,
-      dValue: null
+      dValue: null,
+      lastCheck: "-"
     };
   },
 
   created() {
-   if (this.value) {
-     this.dValue = this.value
-     this.launchAnimation()
-   } else {
-     this.loadDynamicValue();
-   }
+    this.loadDynamicValue();
   },
 
   methods: {
@@ -129,26 +132,13 @@ export default {
             this.url)
           .then(res => {
             let aux = res.data;
-            this.dValue = this.getValueFromNotation(aux,this.jsonkey)
-            this.launchAnimation() 
+            this.counter = this.getValueFromNotation(aux,this.jsonkey)
+            this.lastCheck = this.getValueFromNotation(aux,this.jsonkeyLastCheck);
           }).catch(error => {
             
           });
     },
 
-    
-
-    launchAnimation() {
-     if (this.dValue=="-") {
-       this.counter="-"
-       return
-     }
-     this.ok = true;
-    this.timer = setInterval(() => {
-      this.increaseCounter();
-    }, this.speed);
-
-    },
 
     getValueFromNotation(obj,key) {
     
